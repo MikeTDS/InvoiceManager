@@ -10,8 +10,8 @@ public class AppWindow extends JFrame {
     public List productList = new List(); //awt list
     private AddProductButton addProductButton = new AddProductButton(this);
     //billings
-    private List billingList = new List(); //awt list
-    private ShowBillingButton showBillingButton = new ShowBillingButton();
+    public List billingList = new List(); //awt list
+    private ShowBillingButton showBillingButton = new ShowBillingButton(this);
     public BillingInfoPanel billingInfoPanel = new BillingInfoPanel();
     public ArrayList<Billing> billingArrayList = new ArrayList<Billing>();
     private CreateBillingButton createBillingButton = new CreateBillingButton(this);

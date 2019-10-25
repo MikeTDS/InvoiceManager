@@ -18,7 +18,7 @@ public class AddProductButton extends JButton implements ActionListener {
             Float nettoPrice = appWindow.productArrayList.get(appWindow.productList.getSelectedIndex()).getNettoPrice();
             Float bruttoPrice = appWindow.productArrayList.get(appWindow.productList.getSelectedIndex()).getBruttoPrice();
             try{
-                 amount = Integer.parseInt(JOptionPane.showInputDialog("Amount of products:"));
+                 amount = Integer.parseInt(JOptionPane.showInputDialog(appWindow, "Amount of products:"));
             }
             catch(Exception ex){
                 JOptionPane.showMessageDialog(appWindow, "Wrong amount of products.");
