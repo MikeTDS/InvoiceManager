@@ -8,8 +8,8 @@ public class AddProductButton extends JButton implements ActionListener {
     AppWindow appWindow;
     AddProductButton(AppWindow aw){
         setText("Add Product");
-        appWindow=aw;
         addActionListener(this);
+        appWindow=aw;
     }
     public void actionPerformed(ActionEvent e){
         try {
