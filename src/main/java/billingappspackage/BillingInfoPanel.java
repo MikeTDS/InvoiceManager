@@ -12,13 +12,13 @@ public class BillingInfoPanel extends JPanel {
         setLayout(new BoxLayout(this, 1));
         setPreferredSize(new Dimension(800,300));
         setBackground(Color.LIGHT_GRAY);
-        add(new Label("Nazwa Firmy: "));
+        add(new Label("Name: "));
         add(tfName);
-        add(new Label("Adres: "));
+        add(new Label("Address: "));
         add(tfAddress);
         add(new Label("NIP: "));
         add(tfNIP);
-        add(new Label("Products"));
+        add(new Label("Products: "));
         add(taProducts);
 
     }
