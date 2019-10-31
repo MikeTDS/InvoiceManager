@@ -1,5 +1,7 @@
 package billingappspackage;
 
+import billingappspackage.buttons.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -15,8 +17,16 @@ public class AppWindow extends JFrame {
     public BillingInfoPanel billingInfoPanel = new BillingInfoPanel();
     public ArrayList<Billing> billingArrayList = new ArrayList<Billing>();
     private CreateBillingButton createBillingButton = new CreateBillingButton(this);
+    //client
+    public Client chosenClient;
+    public List clientList = new List(); //awt list
+    public ArrayList<Client> clientArrayList = new ArrayList<Client>();
+    private AddClientButton addClientButton = new AddClientButton(this);
+    private ChooseClientButton chooseClientButton = new ChooseClientButton(this);
+
     AppWindow(){
-        setSize(new Dimension(800, 600));
+        setTitle("BillingApp");
+        setSize(new Dimension(850, 500));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
         setVisible(true);
@@ -24,11 +34,15 @@ public class AppWindow extends JFrame {
         requestFocus();
         add(createBillingButton);
         add(showBillingButton);
+        add(addClientButton);
         add(billingInfoPanel);
-        add(new Label("Products List: "));
+        add(new Label("Clients: "));
+        add(clientList);
+        add(chooseClientButton);
+        add(new Label("Products: "));
         add(productList);
         add(addProductButton);
-        add(new Label("Billings List: "));
+        add(new Label("Billings: "));
         add(billingList);
         addProductsToArrayList();
         showProductList();

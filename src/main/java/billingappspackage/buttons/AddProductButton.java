@@ -1,4 +1,7 @@
-package billingappspackage;
+package billingappspackage.buttons;
+
+import billingappspackage.AppWindow;
+import billingappspackage.OrderedProduct;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -6,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class AddProductButton extends JButton implements ActionListener {
     AppWindow appWindow;
-    AddProductButton(AppWindow aw){
+    public AddProductButton(AppWindow aw){
         setText("Add Product");
         appWindow=aw;
         addActionListener(this);
@@ -35,7 +38,7 @@ public class AddProductButton extends JButton implements ActionListener {
             }
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(appWindow, "Could not add product.");
+            JOptionPane.showMessageDialog(appWindow, "You need to choose product first.");
         }
     }
 }
