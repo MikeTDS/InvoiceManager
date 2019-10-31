@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class CreateBillingButton extends JButton implements ActionListener {
-    public AppWindow appWindow;
+    private final AppWindow appWindow;
     public CreateBillingButton(AppWindow aw){
         setText("New Billing");
         appWindow=aw;
@@ -26,7 +26,7 @@ public class CreateBillingButton extends JButton implements ActionListener {
                 Billing billing = new Billing(client.name, client.address, client.NIP, order);
                 addBillingToList(billing);
                 //FileWriter writer = new FileWriter("C:\\Users\\m_ils\\IdeaProjects\\BillingApp\\billings\\" + Integer.toString(appWindow.billingArrayList.indexOf(billing)+1) + name + ".txt" );
-                FileWriter writer = new FileWriter("C:\\Users\\PC\\IdeaProjects\\FakturyApp\\billings\\" + Integer.toString(appWindow.billingArrayList.indexOf(billing)+1) + client.name + ".txt" );
+                FileWriter writer = new FileWriter("C:\\Users\\PC\\IdeaProjects\\FakturyApp\\billings\\" + (appWindow.billingArrayList.indexOf(billing) + 1) + client.name + ".txt" );
                 BufferedWriter bw = new BufferedWriter(writer);
                 bw.write("Sprzedawca: \n");
                 bw.write("Moja Firma: \n");
@@ -52,7 +52,7 @@ public class CreateBillingButton extends JButton implements ActionListener {
     }
     private void addBillingToList(Billing billing){
         appWindow.billingArrayList.add(billing);
-        appWindow.billingList.add(Integer.toString(appWindow.billingArrayList.indexOf(billing)+1) + ". " + billing.name);
+        appWindow.billingList.add((appWindow.billingArrayList.indexOf(billing) + 1) + ". " + billing.name);
     }
 }
 

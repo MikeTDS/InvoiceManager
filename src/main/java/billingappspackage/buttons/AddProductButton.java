@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddProductButton extends JButton implements ActionListener {
-    AppWindow appWindow;
+    private final AppWindow appWindow;
     public AddProductButton(AppWindow aw){
         setText("Add Product");
         appWindow=aw;
@@ -18,7 +18,7 @@ public class AddProductButton extends JButton implements ActionListener {
         try {
             int amount=0;
             String name = appWindow.productArrayList.get(appWindow.productList.getSelectedIndex()).getName();
-            Float nettoPrice = appWindow.productArrayList.get(appWindow.productList.getSelectedIndex()).getNettoPrice();
+            float nettoPrice = appWindow.productArrayList.get(appWindow.productList.getSelectedIndex()).getNettoPrice();
             Float bruttoPrice = appWindow.productArrayList.get(appWindow.productList.getSelectedIndex()).getBruttoPrice();
             try{
                  amount = Integer.parseInt(JOptionPane.showInputDialog(appWindow, "Amount of products:"));
@@ -28,9 +28,9 @@ public class AddProductButton extends JButton implements ActionListener {
             }
             if(amount>0){
                 OrderedProduct orderedProduct = new OrderedProduct(name, nettoPrice, amount);
-                Float totalNetto = orderedProduct.totalNettoPrice;
-                Float totalBrutto = orderedProduct.totalBruttoPrice;
-                appWindow.billingInfoPanel.taProducts.append(Integer.toString(amount) +"x " + name + " Netto:" + String.format("%.2f", nettoPrice) + " Brutto:" + String.format("%.2f", bruttoPrice)
+                Float totalNetto = orderedProduct.getTotalNettoPrice();
+                Float totalBrutto = orderedProduct.getTotalBruttoPrice();
+                appWindow.billingInfoPanel.taProducts.append(amount +"x " + name + " Netto:" + String.format("%.2f", nettoPrice) + " Brutto:" + String.format("%.2f", bruttoPrice)
                         + " Total(netto): " + String.format("%.2f", totalNetto) + " Total(brutto): " + String.format("%.2f", totalBrutto) + "\n");
             }
             else{

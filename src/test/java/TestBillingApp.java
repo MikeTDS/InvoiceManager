@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 
 
 public class TestBillingApp {
-    int i=1;
-    Product testProduct = new Product("produktTestowy", 1);
+    private final Product testProduct = new Product("produktTestowy", 1);
     @Test
     public void test1() {
         int k = 1;
+        int i = 1;
         assertEquals(i, k);
     }
     @Test

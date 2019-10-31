@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ShowBillingButton extends JButton implements ActionListener {
-    AppWindow appWindow;
+    private final AppWindow appWindow;
     public ShowBillingButton(AppWindow aw){
         addActionListener(this);
         setText("Show Billing");

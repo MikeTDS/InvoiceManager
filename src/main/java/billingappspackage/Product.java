@@ -1,9 +1,13 @@
 package billingappspackage;
 
 public class Product {
-    private String name;
-    private float nettoPrice, bruttoPrice;
-    private int nettoZl, nettoGr, bruttoZl, bruttoGr;
+    private final String name;
+    private final float nettoPrice;
+    private final float bruttoPrice;
+    private int nettoZl;
+    private int nettoGr;
+    private final int bruttoZl;
+    private final int bruttoGr;
     public Product(String _name, float _nettoPrice){
         name=_name;
         nettoPrice=_nettoPrice;
@@ -14,6 +18,6 @@ public class Product {
     public String getName(){ return name; }
     public float getNettoPrice() { return nettoPrice; }
     public float getBruttoPrice() { return bruttoPrice; }
-    public int getBruttoGr() { return bruttoGr; }
-    public int getBruttoZl() { return bruttoZl; }
+    int getBruttoGr() { return bruttoGr; }
+    int getBruttoZl() { return bruttoZl; }
 }

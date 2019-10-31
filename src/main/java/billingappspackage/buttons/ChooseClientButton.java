@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ChooseClientButton extends JButton implements ActionListener {
-    AppWindow appWindow;
+    private final AppWindow appWindow;
     public ChooseClientButton(AppWindow aw){
         setText("Choose Client");
         addActionListener(this);

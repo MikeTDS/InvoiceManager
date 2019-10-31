@@ -1,8 +1,9 @@
 package billingappspackage;
 
 public class OrderedProduct extends Product {
-    public int amount;
-    public float totalNettoPrice, totalBruttoPrice;
+    private final int amount;
+    private final float totalNettoPrice;
+    private final float totalBruttoPrice;
     public OrderedProduct(String _name, float _nettoPrice, int _amount){
         super(_name, _nettoPrice);
         amount=_amount;
