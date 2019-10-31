@@ -23,7 +23,7 @@ public class CreateBillingButton extends JButton implements ActionListener {
             Client client = appWindow.chosenClient;
             if(client!=null){
                 String order = appWindow.billingInfoPanel.taProducts.getText();
-                Billing billing = new Billing(client.name, client.address, client.NIP, order);
+                Billing billing = new Billing(client.name, client.address, client.NIP, order, appWindow.tempProductList);
                 addBillingToList(billing);
                 //FileWriter writer = new FileWriter("C:\\Users\\m_ils\\IdeaProjects\\BillingApp\\billings\\" + Integer.toString(appWindow.billingArrayList.indexOf(billing)+1) + name + ".txt" );
                 FileWriter writer = new FileWriter("C:\\Users\\PC\\IdeaProjects\\FakturyApp\\billings\\" + (appWindow.billingArrayList.indexOf(billing) + 1) + client.name + ".txt" );
@@ -43,6 +43,7 @@ public class CreateBillingButton extends JButton implements ActionListener {
                 bw.close();
                 JOptionPane.showMessageDialog(appWindow, "Created new billing.");
                 appWindow.billingInfoPanel.taProducts.setText("");
+                appWindow.tempProductList.clear();
             }
 
         } catch (IOException ex) {

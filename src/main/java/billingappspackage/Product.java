@@ -12,12 +12,16 @@ public class Product {
         name=_name;
         nettoPrice=_nettoPrice;
         bruttoPrice=_nettoPrice*(1.23f);
+        nettoZl=(int)nettoPrice;
+        nettoGr=(Math.round((nettoPrice-nettoZl)*100));
         bruttoZl=(int)bruttoPrice;
         bruttoGr=(Math.round((bruttoPrice-bruttoZl)*100));
     }
     public String getName(){ return name; }
     public float getNettoPrice() { return nettoPrice; }
     public float getBruttoPrice() { return bruttoPrice; }
-    int getBruttoGr() { return bruttoGr; }
-    int getBruttoZl() { return bruttoZl; }
+    public int getBruttoGr() { return bruttoGr; }
+    public int getBruttoZl() { return bruttoZl; }
+    public int getNettoZl(){return nettoZl;}
+    public int getNettoGr(){return nettoGr;}
 }

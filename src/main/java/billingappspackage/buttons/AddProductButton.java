@@ -30,6 +30,7 @@ public class AddProductButton extends JButton implements ActionListener {
                 OrderedProduct orderedProduct = new OrderedProduct(name, nettoPrice, amount);
                 Float totalNetto = orderedProduct.getTotalNettoPrice();
                 Float totalBrutto = orderedProduct.getTotalBruttoPrice();
+                appWindow.tempProductList.add(orderedProduct);
                 appWindow.billingInfoPanel.taProducts.append(amount +"x " + name + " Netto:" + String.format("%.2f", nettoPrice) + " Brutto:" + String.format("%.2f", bruttoPrice)
                         + " Total(netto): " + String.format("%.2f", totalNetto) + " Total(brutto): " + String.format("%.2f", totalBrutto) + "\n");
             }
