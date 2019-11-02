@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 public class TestProducts {
-    Product testProduct;
+    private Product testProduct;
     @Before
     public void setTestProduct(){
         testProduct = new Product("testProduct", 2.68f);

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class TestBilling {
-    ArrayList<OrderedProduct> testOrderedProducts;
-    Billing testBilling;
+    private ArrayList<OrderedProduct> testOrderedProducts;
+    private Billing testBilling;
     @Before
     public void setBilling(){
         testOrderedProducts = new ArrayList<OrderedProduct>();

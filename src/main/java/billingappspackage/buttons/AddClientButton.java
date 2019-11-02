@@ -22,6 +22,8 @@ public class AddClientButton extends JButton implements ActionListener {
                 Client client = new Client(name, NIP, address);
                 appWindow.clientArrayList.add(client);
                 appWindow.clientList.add(client.name);
+                //db
+                appWindow.dbConnector.addClientToDatabase(client);
             }
         }
         catch(Exception ex){

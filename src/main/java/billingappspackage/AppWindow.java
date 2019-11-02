@@ -1,6 +1,7 @@
 package billingappspackage;
 
 import billingappspackage.buttons.*;
+import billingappspackage.databaseconnector.DatabaseConnector;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,17 +14,14 @@ public class AppWindow extends JFrame {
     public ArrayList<OrderedProduct> tempProductList = new ArrayList<OrderedProduct>();
     //billings
     public final List billingList = new List(); //awt list
-    private final ShowBillingButton showBillingButton = new ShowBillingButton(this);
     public final BillingInfoPanel billingInfoPanel = new BillingInfoPanel();
     public final ArrayList<Billing> billingArrayList = new ArrayList<Billing>();
-    private final CreateBillingButton createBillingButton = new CreateBillingButton(this);
     //client
     public Client chosenClient;
     public final List clientList = new List(); //awt list
     public final ArrayList<Client> clientArrayList = new ArrayList<Client>();
-    private final AddClientButton addClientButton = new AddClientButton(this);
-    private final ChooseClientButton chooseClientButton = new ChooseClientButton(this);
-
+    //database
+    public final DatabaseConnector dbConnector = new DatabaseConnector("localhost:3306", "root", "admin123");
     AppWindow(){
         setTitle("BillingApp");
         setSize(new Dimension(900, 600));
@@ -32,7 +30,7 @@ public class AppWindow extends JFrame {
         setVisible(true);
         setResizable(false);
         requestFocus();
-        add(createBillingButton);
+        add(new CreateBillingButton(this));
         add(new ShowBillingButton(this));
         add(new AddClientButton(this));
         add(billingInfoPanel);
@@ -41,13 +39,17 @@ public class AppWindow extends JFrame {
         add(new ChooseClientButton(this));
         add(new Label("Products: "));
         add(productList);
-        AddProductButton addProductButton = new AddProductButton(this);
         add(new AddProductButton(this));
         add(new Label("Billings: "));
         add(billingList);
+        //bez bazy
         addProductsToArrayList();
         showProductList();
-
+        //z baza
+        dbConnector.openConnection();
+        dbConnector.getProductsFromDatabase(productArrayList);
+        dbConnector.getClientsFromDatabase(clientArrayList);
+        dbConnector.getBillingsFromDatabase(billingArrayList);
     }
     private void addProductsToArrayList(){
         productArrayList.add(new Product("Hammer", 5));

@@ -54,6 +54,8 @@ public class CreateBillingButton extends JButton implements ActionListener {
     private void addBillingToList(Billing billing){
         appWindow.billingArrayList.add(billing);
         appWindow.billingList.add((appWindow.billingArrayList.indexOf(billing) + 1) + ". " + billing.name);
+        //db
+        appWindow.dbConnector.addBillingToDatabase(billing);
     }
 }
 

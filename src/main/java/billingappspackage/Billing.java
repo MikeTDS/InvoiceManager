@@ -18,7 +18,7 @@ public class Billing {
         orderedProducts=_orderedProducts;
         setTotalPrices();
     }
-    public void setTotalPrices(){
+    private void setTotalPrices(){
         for(int i=0; i<orderedProducts.size(); i++){
             totalPriceNetto += orderedProducts.get(i).getTotalNettoPrice();
             totalPriceBrutto += orderedProducts.get(i).getTotalBruttoPrice();

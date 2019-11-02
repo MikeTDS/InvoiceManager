@@ -4,8 +4,8 @@ public class Product {
     private final String name;
     private final float nettoPrice;
     private final float bruttoPrice;
-    private int nettoZl;
-    private int nettoGr;
+    private final int nettoZl;
+    private final int nettoGr;
     private final int bruttoZl;
     private final int bruttoGr;
     public Product(String _name, float _nettoPrice){
