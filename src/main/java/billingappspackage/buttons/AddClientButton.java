@@ -1,4 +1,5 @@
 package billingappspackage.buttons;
+import billingappspackage.AppController;
 import billingappspackage.AppWindow;
 import billingappspackage.Client;
 
@@ -7,27 +8,28 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddClientButton extends JButton implements ActionListener {
-    private final AppWindow appWindow;
+    private final AppController appController;
     public AddClientButton(AppWindow aw){
       setText("New Client");
       addActionListener(this);
-      appWindow=aw;
+      AppWindow appWindow=aw;
+      appController=aw.appController;
     }
     public void actionPerformed(ActionEvent e){
         try{
-            String name = JOptionPane.showInputDialog(appWindow, "Name: ");
+            String name = JOptionPane.showInputDialog(appController.appWindow, "Name: ");
             if(name!=null) {
-                String NIP = JOptionPane.showInputDialog(appWindow, "NIP: ");
-                String address = JOptionPane.showInputDialog(appWindow, "Address: ");
+                String NIP = JOptionPane.showInputDialog(appController.appWindow, "NIP: ");
+                String address = JOptionPane.showInputDialog(appController.appWindow, "Address: ");
                 Client client = new Client(name, NIP, address);
-                appWindow.clientArrayList.add(client);
-                appWindow.clientList.add(client.name);
+                appController.dataController.clientArrayList.add(client);
+                appController.appWindow.clientList.add(client.name);
                 //db
-                appWindow.dbConnector.addClientToDatabase(client);
+                appController.dataController.dbConnector.addClientToDatabase(client);
             }
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(appWindow,"Could not add new client.");
+            JOptionPane.showMessageDialog(appController.appWindow,"Could not add new client.");
         }
     }
 }

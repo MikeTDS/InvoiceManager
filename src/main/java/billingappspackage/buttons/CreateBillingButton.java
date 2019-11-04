@@ -1,5 +1,6 @@
 package billingappspackage.buttons;
 
+import billingappspackage.AppController;
 import billingappspackage.AppWindow;
 import billingappspackage.Billing;
 import billingappspackage.Client;
@@ -12,21 +13,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class CreateBillingButton extends JButton implements ActionListener {
-    private final AppWindow appWindow;
+    private final AppController appController;
     public CreateBillingButton(AppWindow aw){
         setText("New Billing");
-        appWindow=aw;
+        appController=aw.appController;
         addActionListener(this);
     }
     public void actionPerformed(ActionEvent e){
         try{
-            Client client = appWindow.chosenClient;
+            Client client = appController.dataController.chosenClient;
             if(client!=null){
-                String order = appWindow.billingInfoPanel.taProducts.getText();
-                Billing billing = new Billing(client.name, client.address, client.NIP, order, appWindow.tempProductList);
+                String order = appController.appWindow.billingInfoPanel.taProducts.getText();
+                Billing billing = new Billing(client.name, client.address, client.NIP, order, appController.dataController.tempProductList);
                 addBillingToList(billing);
                 client.billingArrayList.add(billing);
-                FileWriter writer = new FileWriter("C:\\Users\\m_ils\\IdeaProjects\\BillingApp\\billings\\" + Integer.toString(appWindow.billingArrayList.indexOf(billing)+1) + client.name + ".txt" );
+                FileWriter writer = new FileWriter("C:\\Users\\m_ils\\IdeaProjects\\BillingApp\\billings\\" + Integer.toString(appController.dataController.billingArrayList.indexOf(billing)+1) + client.name + ".txt" );
                 //FileWriter writer = new FileWriter("C:\\Users\\PC\\IdeaProjects\\FakturyApp\\billings\\" + (appWindow.billingArrayList.indexOf(billing) + 1) + client.name + ".txt" );
                 BufferedWriter bw = new BufferedWriter(writer);
                 bw.write("Sprzedawca: \n");
@@ -42,21 +43,21 @@ public class CreateBillingButton extends JButton implements ActionListener {
                 bw.write("Zamowienie: \n");
                 bw.write(order);
                 bw.close();
-                JOptionPane.showMessageDialog(appWindow, "Created new billing.");
-                appWindow.billingInfoPanel.taProducts.setText("");
-                appWindow.tempProductList.clear();
+                JOptionPane.showMessageDialog(appController.appWindow, "Created new billing.");
+                appController.appWindow.billingInfoPanel.taProducts.setText("");
+                appController.dataController.tempProductList.clear();
             }
 
         } catch (IOException ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(appWindow, "Could not create billing.");
+            JOptionPane.showMessageDialog(appController.appWindow, "Could not create billing.");
         }
     }
     private void addBillingToList(Billing billing){
-        appWindow.billingArrayList.add(billing);
-        appWindow.billingList.add((appWindow.billingArrayList.indexOf(billing) + 1) + ". " + billing.name);
+        appController.dataController.billingArrayList.add(billing);
+        appController.appWindow.billingList.add((appController.dataController.billingArrayList.indexOf(billing) + 1) + ". " + billing.name);
         //db
-        appWindow.dbConnector.addBillingToDatabase(billing);
+        appController.dataController.dbConnector.addBillingToDatabase(billing);
     }
 }
 

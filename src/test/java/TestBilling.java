@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestBilling {
     private Billing testBilling;
@@ -19,7 +20,7 @@ public class TestBilling {
     }
     @Test
     public void testArrayListSize(){
-        assertEquals(testBilling.orderedProducts.size(), 3);
+        assertTrue(testBilling.orderedProducts.size()==3);
     }
     @Test
     public void testTotalPrice(){

@@ -1,5 +1,6 @@
 package billingappspackage.buttons;
 
+import billingappspackage.AppController;
 import billingappspackage.AppWindow;
 import billingappspackage.Billing;
 
@@ -8,23 +9,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ShowBillingButton extends JButton implements ActionListener {
-    private final AppWindow appWindow;
+    private final AppController appController;
     public ShowBillingButton(AppWindow aw){
         addActionListener(this);
         setText("Show Billing");
-        appWindow=aw;
+        appController = aw.appController;
     }
     public void actionPerformed(ActionEvent e){
-        int i = appWindow.billingList.getSelectedIndex();
+        int i = appController.appWindow.billingList.getSelectedIndex();
         if(i==-1)
-            JOptionPane.showMessageDialog(appWindow, "You need to choose billing to show.");
+            JOptionPane.showMessageDialog(appController.appWindow, "You need to choose billing to show.");
         else{
-            Billing chosenBilling = appWindow.billingArrayList.get(i);
-            appWindow.billingInfoPanel.tfName.setText("Name: " + chosenBilling.name);
-            appWindow.billingInfoPanel.tfAddress.setText("Address: " + chosenBilling.address);
-            appWindow.billingInfoPanel.tfNIP.setText("NIP: " + chosenBilling.NIP);
-            appWindow.billingInfoPanel.taProducts.setText(chosenBilling.products);
-            appWindow.billingInfoPanel.taProducts.append("Netto:" + String.format("%.2f", chosenBilling.totalPriceNetto) + " Brutto:" + String.format("%.2f", chosenBilling.totalPriceBrutto));
+            Billing chosenBilling = appController.dataController.billingArrayList.get(i);
+            appController.appWindow.billingInfoPanel.tfName.setText("Name: " + chosenBilling.name);
+            appController.appWindow.billingInfoPanel.tfAddress.setText("Address: " + chosenBilling.address);
+            appController.appWindow.billingInfoPanel.tfNIP.setText("NIP: " + chosenBilling.NIP);
+            appController.appWindow.billingInfoPanel.taProducts.setText(chosenBilling.products);
+            appController.appWindow.billingInfoPanel.taProducts.append("Netto:" + String.format("%.2f", chosenBilling.totalPriceNetto) + " Brutto:" + String.format("%.2f", chosenBilling.totalPriceBrutto));
         }
     }
 }
