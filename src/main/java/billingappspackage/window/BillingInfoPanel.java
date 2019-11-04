@@ -1,4 +1,4 @@
-package billingappspackage;
+package billingappspackage.window;
 
 import javax.swing.*;
 import java.awt.*;

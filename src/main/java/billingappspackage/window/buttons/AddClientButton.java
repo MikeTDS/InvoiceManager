@@ -1,6 +1,6 @@
-package billingappspackage.buttons;
+package billingappspackage.window.buttons;
 import billingappspackage.AppController;
-import billingappspackage.AppWindow;
+import billingappspackage.window.AppWindow;
 import billingappspackage.Client;
 
 import javax.swing.*;
@@ -12,8 +12,7 @@ public class AddClientButton extends JButton implements ActionListener {
     public AddClientButton(AppWindow aw){
       setText("New Client");
       addActionListener(this);
-      AppWindow appWindow=aw;
-      appController=aw.appController;
+        appController=aw.appController;
     }
     public void actionPerformed(ActionEvent e){
         try{

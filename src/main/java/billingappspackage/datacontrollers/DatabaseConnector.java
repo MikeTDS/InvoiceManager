@@ -1,4 +1,4 @@
-package billingappspackage.databaseconnector;
+package billingappspackage.datacontrollers;
 
 import billingappspackage.Billing;
 import billingappspackage.Client;
@@ -7,13 +7,7 @@ import billingappspackage.Product;
 import java.util.ArrayList;
 
 public class DatabaseConnector {
-    private final String dataBaseURL;
-    private final String login;
-    private final String password;
     public DatabaseConnector(String _url, String _login, String _password){
-        dataBaseURL=_url;
-        login=_login;
-        password=_password;
         openConnection();
     }
     public void openConnection(){}

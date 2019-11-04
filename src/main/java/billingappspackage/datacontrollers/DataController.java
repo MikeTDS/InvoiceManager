@@ -1,18 +1,19 @@
-package billingappspackage;
+package billingappspackage.datacontrollers;
 
-import billingappspackage.databaseconnector.DatabaseConnector;
+import billingappspackage.*;
+import billingappspackage.datacontrollers.DatabaseConnector;
 
 import java.util.ArrayList;
 
 public class DataController {
-    public  AppController appController;
+    private final AppController appController;
     public Client chosenClient;
     public final ArrayList<Product> productArrayList;
     public final ArrayList<OrderedProduct> tempProductList;
     public final ArrayList<Billing> billingArrayList;
     public final ArrayList<Client> clientArrayList;
     public final DatabaseConnector dbConnector = new DatabaseConnector("localhost:3306", "root", "admin123");
-    DataController(AppController _appController){
+    public DataController(AppController _appController){
         appController=_appController;
         productArrayList= new ArrayList<Product>();
         tempProductList = new ArrayList<OrderedProduct>();

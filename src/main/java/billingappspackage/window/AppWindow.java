@@ -1,14 +1,13 @@
-package billingappspackage;
+package billingappspackage.window;
 
-import billingappspackage.buttons.*;
-import billingappspackage.databaseconnector.DatabaseConnector;
+import billingappspackage.AppController;
+import billingappspackage.window.buttons.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class AppWindow extends JFrame {
-    public AppController appController;
+    public final AppController appController;
     //products
     public final List productList = new List(); //awt list
     //billings
@@ -18,7 +17,7 @@ public class AppWindow extends JFrame {
     public final List clientList = new List(); //awt list
     //data
     //public DataController dataController = new DataController();
-    AppWindow(AppController _appController){
+    public AppWindow(AppController _appController){
         setTitle("BillingApp");
         setSize(new Dimension(900, 600));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

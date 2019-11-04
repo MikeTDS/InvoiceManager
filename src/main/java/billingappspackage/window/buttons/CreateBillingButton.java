@@ -1,7 +1,7 @@
-package billingappspackage.buttons;
+package billingappspackage.window.buttons;
 
 import billingappspackage.AppController;
-import billingappspackage.AppWindow;
+import billingappspackage.window.AppWindow;
 import billingappspackage.Billing;
 import billingappspackage.Client;
 
