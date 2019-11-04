@@ -26,8 +26,8 @@ public class CreateBillingButton extends JButton implements ActionListener {
                 Billing billing = new Billing(client.name, client.address, client.NIP, order, appWindow.tempProductList);
                 addBillingToList(billing);
                 client.billingArrayList.add(billing);
-                //FileWriter writer = new FileWriter("C:\\Users\\m_ils\\IdeaProjects\\BillingApp\\billings\\" + Integer.toString(appWindow.billingArrayList.indexOf(billing)+1) + name + ".txt" );
-                FileWriter writer = new FileWriter("C:\\Users\\PC\\IdeaProjects\\FakturyApp\\billings\\" + (appWindow.billingArrayList.indexOf(billing) + 1) + client.name + ".txt" );
+                FileWriter writer = new FileWriter("C:\\Users\\m_ils\\IdeaProjects\\BillingApp\\billings\\" + Integer.toString(appWindow.billingArrayList.indexOf(billing)+1) + client.name + ".txt" );
+                //FileWriter writer = new FileWriter("C:\\Users\\PC\\IdeaProjects\\FakturyApp\\billings\\" + (appWindow.billingArrayList.indexOf(billing) + 1) + client.name + ".txt" );
                 BufferedWriter bw = new BufferedWriter(writer);
                 bw.write("Sprzedawca: \n");
                 bw.write("Moja Firma: \n");
