@@ -1,38 +1,55 @@
 package billingappspackage;
 
+import billingappspackage.buttons.*;
+import billingappspackage.databaseconnector.DatabaseConnector;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class AppWindow extends JFrame {
     //products
-    public ArrayList<Product> productArrayList = new ArrayList<Product>();
-    public List productList = new List(); //awt list
-    private AddProductButton addProductButton = new AddProductButton(this);
+    public final ArrayList<Product> productArrayList = new ArrayList<Product>();
+    public final List productList = new List(); //awt list
+    public ArrayList<OrderedProduct> tempProductList = new ArrayList<OrderedProduct>();
     //billings
-    public List billingList = new List(); //awt list
-    private ShowBillingButton showBillingButton = new ShowBillingButton(this);
-    public BillingInfoPanel billingInfoPanel = new BillingInfoPanel();
-    public ArrayList<Billing> billingArrayList = new ArrayList<Billing>();
-    private CreateBillingButton createBillingButton = new CreateBillingButton(this);
+    public final List billingList = new List(); //awt list
+    public final BillingInfoPanel billingInfoPanel = new BillingInfoPanel();
+    public final ArrayList<Billing> billingArrayList = new ArrayList<Billing>();
+    //client
+    public Client chosenClient;
+    public final List clientList = new List(); //awt list
+    public final ArrayList<Client> clientArrayList = new ArrayList<Client>();
+    //database
+    public final DatabaseConnector dbConnector = new DatabaseConnector("localhost:3306", "root", "admin123");
     AppWindow(){
-        setSize(new Dimension(800, 600));
+        setTitle("BillingApp");
+        setSize(new Dimension(900, 600));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
-        setVisible(true);
         setResizable(false);
         requestFocus();
-        add(createBillingButton);
-        add(showBillingButton);
+        add(new CreateBillingButton(this));
+        add(new ShowBillingButton(this));
+        add(new AddClientButton(this));
         add(billingInfoPanel);
-        add(new Label("Products List: "));
+        add(new Label("Clients: "));
+        add(clientList);
+        add(new ChooseClientButton(this));
+        add(new Label("Products: "));
         add(productList);
-        add(addProductButton);
-        add(new Label("Billings List: "));
+        add(new AddProductButton(this));
+        add(new Label("Billings: "));
         add(billingList);
+        //bez bazy
         addProductsToArrayList();
         showProductList();
-
+        //z baza
+        dbConnector.openConnection();
+        dbConnector.getProductsFromDatabase(productArrayList);
+        dbConnector.getClientsFromDatabase(clientArrayList);
+        dbConnector.getBillingsFromDatabase(billingArrayList);
+        setVisible(true);
     }
     private void addProductsToArrayList(){
         productArrayList.add(new Product("Hammer", 5));

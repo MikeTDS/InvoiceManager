@@ -4,22 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BillingInfoPanel extends JPanel {
-    TextField tfName = new TextField(30);
-    TextField tfAddress = new TextField(50);
-    TextField tfNIP = new TextField(11);
-    TextArea taProducts = new TextArea();
+    public final TextArea taProducts = new TextArea();
+    public final Label tfName = new Label("Name: ");
+    public final Label tfNIP = new Label("NIP: ");
+    public final Label tfAddress = new Label("Address: ");
     BillingInfoPanel(){
-        setLayout(new BoxLayout(this, 1));
-        setPreferredSize(new Dimension(800,300));
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setPreferredSize(new Dimension(880,300));
         setBackground(Color.LIGHT_GRAY);
-        add(new Label("Name: "));
         add(tfName);
-        add(new Label("Address: "));
         add(tfAddress);
-        add(new Label("NIP: "));
         add(tfNIP);
+        add(new Label());
         add(new Label("Products: "));
         add(taProducts);
-
     }
 }
