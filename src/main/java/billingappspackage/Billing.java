@@ -7,7 +7,7 @@ public class Billing {
     public final String address;
     public final String NIP;
     public final String products;
-    public ArrayList<OrderedProduct> orderedProducts;
+    public final ArrayList<OrderedProduct> orderedProducts;
     public float totalPriceNetto, totalPriceBrutto;
 
     public Billing(String _name, String _address, String _NIP, String _products,ArrayList<OrderedProduct> _orderedProducts){
@@ -19,9 +19,9 @@ public class Billing {
         setTotalPrices();
     }
     private void setTotalPrices(){
-        for(int i=0; i<orderedProducts.size(); i++){
-            totalPriceNetto += orderedProducts.get(i).getTotalNettoPrice();
-            totalPriceBrutto += orderedProducts.get(i).getTotalBruttoPrice();
+        for (OrderedProduct orderedProduct : orderedProducts) {
+            totalPriceNetto += orderedProduct.getTotalNettoPrice();
+            totalPriceBrutto += orderedProduct.getTotalBruttoPrice();
         }
     }
 }

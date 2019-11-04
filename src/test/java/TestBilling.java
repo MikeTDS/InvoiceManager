@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class TestBilling {
-    private ArrayList<OrderedProduct> testOrderedProducts;
     private Billing testBilling;
     @Before
     public void setBilling(){
-        testOrderedProducts = new ArrayList<OrderedProduct>();
+        ArrayList<OrderedProduct> testOrderedProducts = new ArrayList<OrderedProduct>();
         testOrderedProducts.add(new OrderedProduct("A", 2.52f, 5));
         testOrderedProducts.add(new OrderedProduct("B", 3.35f, 5));
         testOrderedProducts.add(new OrderedProduct("C", 4.13f, 5));
