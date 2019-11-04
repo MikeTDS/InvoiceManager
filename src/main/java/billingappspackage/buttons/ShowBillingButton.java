@@ -24,6 +24,7 @@ public class ShowBillingButton extends JButton implements ActionListener {
             appWindow.billingInfoPanel.tfAddress.setText("Address: " + chosenBilling.address);
             appWindow.billingInfoPanel.tfNIP.setText("NIP: " + chosenBilling.NIP);
             appWindow.billingInfoPanel.taProducts.setText(chosenBilling.products);
+            appWindow.billingInfoPanel.taProducts.append("Netto:" + String.format("%.2f", chosenBilling.totalPriceNetto) + " Brutto:" + String.format("%.2f", chosenBilling.totalPriceBrutto));
         }
     }
 }

@@ -27,7 +27,6 @@ public class AppWindow extends JFrame {
         setSize(new Dimension(900, 600));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
-        setVisible(true);
         setResizable(false);
         requestFocus();
         add(new CreateBillingButton(this));
@@ -50,6 +49,7 @@ public class AppWindow extends JFrame {
         dbConnector.getProductsFromDatabase(productArrayList);
         dbConnector.getClientsFromDatabase(clientArrayList);
         dbConnector.getBillingsFromDatabase(billingArrayList);
+        setVisible(true);
     }
     private void addProductsToArrayList(){
         productArrayList.add(new Product("Hammer", 5));

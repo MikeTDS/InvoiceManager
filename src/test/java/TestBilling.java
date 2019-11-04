@@ -24,7 +24,7 @@ public class TestBilling {
     }
     @Test
     public void testTotalPrice(){
-        assertEquals(testBilling.totalPriceNetto, 50.0, 0.0f);
-        assertEquals(testBilling.totalPriceBrutto, 1.23f*50.0, 0.01f);
+        assertEquals(testBilling.totalPriceNetto, 50, 0.0f);
+        assertEquals(testBilling.totalPriceBrutto, 1.23f*50, 0.01f);
     }
 }
