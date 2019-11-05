@@ -44,9 +44,9 @@ public class DataController {
     public void addProduct() {
         try {
             int amount=0;
-            String name = appController.dataController.productArrayList.get(appController.appWindow.productList.getSelectedIndex()).getName();
-            float nettoPrice = appController.dataController.productArrayList.get(appController.appWindow.productList.getSelectedIndex()).getNettoPrice();
-            Float bruttoPrice = appController.dataController.productArrayList.get(appController.appWindow.productList.getSelectedIndex()).getBruttoPrice();
+            String name = productArrayList.get(appController.appWindow.productList.getSelectedIndex()).getName();
+            float nettoPrice = productArrayList.get(appController.appWindow.productList.getSelectedIndex()).getNettoPrice();
+            Float bruttoPrice = productArrayList.get(appController.appWindow.productList.getSelectedIndex()).getBruttoPrice();
             try{
                 amount = Integer.parseInt(JOptionPane.showInputDialog(appController.appWindow, "Amount of products:"));
             }
@@ -57,7 +57,7 @@ public class DataController {
                 OrderedProduct orderedProduct = new OrderedProduct(name, nettoPrice, amount);
                 Float totalNetto = orderedProduct.getTotalNettoPrice();
                 Float totalBrutto = orderedProduct.getTotalBruttoPrice();
-                appController.dataController.tempProductList.add(orderedProduct);
+                tempProductList.add(orderedProduct);
                 appController.appWindow.billingInfoPanel.taProducts.append(amount +"x " + name + " Netto:" + String.format("%.2f", nettoPrice) + " Brutto:" + String.format("%.2f", bruttoPrice)
                         + " Total(netto): " + String.format("%.2f", totalNetto) + " Total(brutto): " + String.format("%.2f", totalBrutto) + "\n");
             }
@@ -96,11 +96,11 @@ public class DataController {
     public void chooseClient() {
         int i = appController.appWindow.clientList.getSelectedIndex();
         if(i!=-1){
-            Client client = appController.dataController.clientArrayList.get(i);
+            Client client = clientArrayList.get(i);
             appController.appWindow.billingInfoPanel.tfName.setText("Name: " + client.name);
             appController.appWindow.billingInfoPanel.tfAddress.setText("Address: " + client.address);
             appController.appWindow.billingInfoPanel.tfNIP.setText("NIP: " + client.NIP);
-            appController.dataController.chosenClient = client;
+            chosenClient = client;
         }
         else{
             JOptionPane.showMessageDialog(appController.appWindow, "You need to choose client first.");
@@ -109,16 +109,16 @@ public class DataController {
 
     public void createBilling() {
         try{
-            Client client = appController.dataController.chosenClient;
+            Client client = chosenClient;
             if(client!=null){
                 String order = appController.appWindow.billingInfoPanel.taProducts.getText();
-                Billing billing = new Billing(client.name, client.address, client.NIP, order, appController.dataController.tempProductList);
-                appController.dataController.billingArrayList.add(billing);
-                appController.appWindow.billingList.add((appController.dataController.billingArrayList.indexOf(billing) + 1) + ". " + billing.name);
+                Billing billing = new Billing(client.name, client.address, client.NIP, order, tempProductList);
+                billingArrayList.add(billing);
+                appController.appWindow.billingList.add((billingArrayList.indexOf(billing) + 1) + ". " + billing.name);
                 //db
-                appController.dataController.dbConnector.addBillingToDatabase(billing);
+                dbConnector.addBillingToDatabase(billing);
                 client.billingArrayList.add(billing);
-                FileWriter writer = new FileWriter("C:\\Users\\m_ils\\IdeaProjects\\BillingApp\\billings\\" + Integer.toString(appController.dataController.billingArrayList.indexOf(billing)+1) + client.name + ".txt" );
+                FileWriter writer = new FileWriter("C:\\Users\\m_ils\\IdeaProjects\\BillingApp\\billings\\" + Integer.toString(billingArrayList.indexOf(billing)+1) + client.name + ".txt" );
                 //FileWriter writer = new FileWriter("C:\\Users\\PC\\IdeaProjects\\FakturyApp\\billings\\" + (appWindow.billingArrayList.indexOf(billing) + 1) + client.name + ".txt" );
                 BufferedWriter bw = new BufferedWriter(writer);
                 bw.write("Sprzedawca: \n");
@@ -136,7 +136,7 @@ public class DataController {
                 bw.close();
                 JOptionPane.showMessageDialog(appController.appWindow, "Created new billing.");
                 appController.appWindow.billingInfoPanel.taProducts.setText("");
-                appController.dataController.tempProductList.clear();
+                tempProductList.clear();
             }
 
         } catch (IOException ex) {
@@ -150,7 +150,7 @@ public class DataController {
         if(i==-1)
             JOptionPane.showMessageDialog(appController.appWindow, "You need to choose billing to show.");
         else{
-            Billing chosenBilling = appController.dataController.billingArrayList.get(i);
+            Billing chosenBilling = billingArrayList.get(i);
             appController.appWindow.billingInfoPanel.tfName.setText("Name: " + chosenBilling.name);
             appController.appWindow.billingInfoPanel.tfAddress.setText("Address: " + chosenBilling.address);
             appController.appWindow.billingInfoPanel.tfNIP.setText("NIP: " + chosenBilling.NIP);
