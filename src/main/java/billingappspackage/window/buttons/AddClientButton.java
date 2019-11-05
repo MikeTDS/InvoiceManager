@@ -15,20 +15,6 @@ public class AddClientButton extends JButton implements ActionListener {
         appController=aw.appController;
     }
     public void actionPerformed(ActionEvent e){
-        try{
-            String name = JOptionPane.showInputDialog(appController.appWindow, "Name: ");
-            if(name!=null) {
-                String NIP = JOptionPane.showInputDialog(appController.appWindow, "NIP: ");
-                String address = JOptionPane.showInputDialog(appController.appWindow, "Address: ");
-                Client client = new Client(name, NIP, address);
-                appController.dataController.clientArrayList.add(client);
-                appController.appWindow.clientList.add(client.name);
-                //db
-                appController.dataController.dbConnector.addClientToDatabase(client);
-            }
-        }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(appController.appWindow,"Could not add new client.");
-        }
+        appController.dataController.addClient();
     }
 }

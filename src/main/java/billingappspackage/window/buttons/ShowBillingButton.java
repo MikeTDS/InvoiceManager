@@ -16,16 +16,17 @@ public class ShowBillingButton extends JButton implements ActionListener {
         appController = aw.appController;
     }
     public void actionPerformed(ActionEvent e){
-        int i = appController.appWindow.billingList.getSelectedIndex();
-        if(i==-1)
-            JOptionPane.showMessageDialog(appController.appWindow, "You need to choose billing to show.");
-        else{
-            Billing chosenBilling = appController.dataController.billingArrayList.get(i);
-            appController.appWindow.billingInfoPanel.tfName.setText("Name: " + chosenBilling.name);
-            appController.appWindow.billingInfoPanel.tfAddress.setText("Address: " + chosenBilling.address);
-            appController.appWindow.billingInfoPanel.tfNIP.setText("NIP: " + chosenBilling.NIP);
-            appController.appWindow.billingInfoPanel.taProducts.setText(chosenBilling.products);
-            appController.appWindow.billingInfoPanel.taProducts.append("Netto:" + String.format("%.2f", chosenBilling.totalPriceNetto) + " Brutto:" + String.format("%.2f", chosenBilling.totalPriceBrutto));
-        }
+        appController.dataController.showBilling();
+//        int i = appController.appWindow.billingList.getSelectedIndex();
+//        if(i==-1)
+//            JOptionPane.showMessageDialog(appController.appWindow, "You need to choose billing to show.");
+//        else{
+//            Billing chosenBilling = appController.dataController.billingArrayList.get(i);
+//            appController.appWindow.billingInfoPanel.tfName.setText("Name: " + chosenBilling.name);
+//            appController.appWindow.billingInfoPanel.tfAddress.setText("Address: " + chosenBilling.address);
+//            appController.appWindow.billingInfoPanel.tfNIP.setText("NIP: " + chosenBilling.NIP);
+//            appController.appWindow.billingInfoPanel.taProducts.setText(chosenBilling.products);
+//            appController.appWindow.billingInfoPanel.taProducts.append("Netto:" + String.format("%.2f", chosenBilling.totalPriceNetto) + " Brutto:" + String.format("%.2f", chosenBilling.totalPriceBrutto));
+//        }
     }
 }
