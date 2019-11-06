@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="940.0" y="21.5">billingappspackage.window.buttons.ChooseClientButton</node>
+    <node x="762.0" y="0.0">billingappspackage.window.BillingInfoPanel</node>
+    <node x="507.9999999999999" y="407.0">billingappspackage.window.buttons.ShowBillingButton</node>
+    <node x="508.0" y="21.5">billingappspackage.window.buttons.AddClientButton</node>
+    <node x="0.0" y="21.5">billingappspackage.window.buttons.AddProductButton</node>
+    <node x="516.9999999999999" y="196.0">billingappspackage.window.AppWindow</node>
+    <node x="248.0" y="-9.5">billingappspackage.window.buttons.CreateBillingButton</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="billingappspackage.window.AppWindow" target="billingappspackage.window.buttons.CreateBillingButton">
+      <point x="-54.0" y="-80.5" />
+      <point x="570.9999999999999" y="156.0" />
+      <point x="312.5" y="156.0" />
+      <point x="-58.5" y="47.5" />
+    </edge>
+    <edge source="billingappspackage.window.AppWindow" target="billingappspackage.window.buttons.ShowBillingButton">
+      <point x="54.0" y="80.5" />
+      <point x="678.9999999999999" y="382.0" />
+      <point x="683.4999999999999" y="382.0" />
+      <point x="58.5" y="-36.5" />
+    </edge>
+    <edge source="billingappspackage.window.buttons.ChooseClientButton" target="billingappspackage.window.AppWindow">
+      <point x="58.5" y="36.5" />
+      <point x="1115.5" y="176.0" />
+      <point x="722.1999999999999" y="176.0" />
+      <point x="97.20000000000005" y="-80.5" />
+    </edge>
+    <edge source="billingappspackage.window.buttons.AddClientButton" target="billingappspackage.window.AppWindow">
+      <point x="58.5" y="36.5" />
+      <point x="683.5" y="136.0" />
+      <point x="635.8" y="136.0" />
+      <point x="10.800000000000068" y="-80.5" />
+    </edge>
+    <edge source="billingappspackage.window.AppWindow" target="billingappspackage.window.buttons.AddProductButton">
+      <point x="-97.19999999999993" y="-80.5" />
+      <point x="527.8" y="176.0" />
+      <point x="58.5" y="176.0" />
+      <point x="-58.5" y="36.5" />
+    </edge>
+    <edge source="billingappspackage.window.buttons.CreateBillingButton" target="billingappspackage.window.AppWindow">
+      <point x="58.5" y="47.5" />
+      <point x="429.5" y="146.0" />
+      <point x="592.5999999999999" y="146.0" />
+      <point x="-32.39999999999998" y="-80.5" />
+    </edge>
+    <edge source="billingappspackage.window.buttons.ShowBillingButton" target="billingappspackage.window.AppWindow">
+      <point x="-58.5" y="-36.5" />
+      <point x="566.4999999999999" y="382.0" />
+      <point x="570.9999999999999" y="382.0" />
+      <point x="-54.0" y="80.5" />
+    </edge>
+    <edge source="billingappspackage.window.AppWindow" target="billingappspackage.window.buttons.ChooseClientButton">
+      <point x="75.60000000000002" y="-80.5" />
+      <point x="700.5999999999999" y="166.0" />
+      <point x="998.5" y="166.0" />
+      <point x="-58.5" y="36.5" />
+    </edge>
+    <edge source="billingappspackage.window.buttons.AddProductButton" target="billingappspackage.window.AppWindow">
+      <point x="58.5" y="36.5" />
+      <point x="175.5" y="166.0" />
+      <point x="549.4" y="166.0" />
+      <point x="-75.59999999999997" y="-80.5" />
+    </edge>
+    <edge source="billingappspackage.window.AppWindow" target="billingappspackage.window.BillingInfoPanel">
+      <point x="32.39999999999998" y="-80.5" />
+      <point x="657.3999999999999" y="146.0" />
+      <point x="801.5" y="146.0" />
+      <point x="-39.5" y="58.0" />
+    </edge>
+    <edge source="billingappspackage.window.AppWindow" target="billingappspackage.window.buttons.AddClientButton">
+      <point x="-10.799999999999955" y="-80.5" />
+      <point x="614.1999999999999" y="136.0" />
+      <point x="566.5" y="136.0" />
+      <point x="-58.5" y="36.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="506.5" y="203.0" />
+  <SelectedNodes>
+    <node>billingappspackage.window.buttons.CreateBillingButton</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

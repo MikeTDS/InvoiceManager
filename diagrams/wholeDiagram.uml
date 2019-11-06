@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="195.49999999999997" y="242.0">billingappspackage.OrderedProduct</node>
+    <node x="570.2501937984497" y="829.0">billingappspackage.datacontrollers.DatabaseConnector</node>
+    <node x="325.2501937984497" y="629.0">billingappspackage.Client</node>
+    <node x="171.27848837209308" y="998.0">billingappspackage.datacontrollers.DataController</node>
+    <node x="43.0" y="806.0">billingappspackage.AppController</node>
+    <node x="36.5" y="618.0">billingappspackage.window.AppWindow</node>
+    <node x="303.5001937984497" y="386.0">billingappspackage.Billing</node>
+    <node x="434.625" y="0.0">billingappspackage.Product</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="billingappspackage.Billing" target="billingappspackage.OrderedProduct">
+      <point x="71.25" y="-91.0" />
+      <point x="517.2501937984497" y="356.0" />
+      <point x="336.79999999999995" y="356.0" />
+      <point x="62.80000000000001" y="47.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DataController" target="billingappspackage.Product">
+      <point x="135.0" y="-91.0" />
+      <point x="448.7784883720931" y="978.0" />
+      <point x="756.7501937984497" y="978.0" />
+      <point x="756.7501937984497" y="202.0" />
+      <point x="556.5416666666667" y="202.0" />
+      <point x="55.4166666666667" y="91.0" />
+    </edge>
+    <edge source="billingappspackage.Client" target="billingappspackage.Billing">
+      <point x="56.0" y="-58.0" />
+      <point x="493.2501937984497" y="598.0" />
+      <point x="469.7501937984497" y="598.0" />
+      <point x="23.75" y="91.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DatabaseConnector" target="billingappspackage.Client">
+      <point x="-55.0" y="-13.0" />
+      <point x="597.7501937984497" y="781.0" />
+      <point x="526.8501937984497" y="781.0" />
+      <point x="89.60000000000002" y="58.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DataController" target="billingappspackage.OrderedProduct">
+      <point x="-120.0" y="-91.0" />
+      <point x="193.77848837209308" y="968.0" />
+      <point x="26.0" y="968.0" />
+      <point x="26.0" y="366.0" />
+      <point x="211.19999999999996" y="366.0" />
+      <point x="-62.80000000000001" y="47.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DataController" target="billingappspackage.AppController">
+      <point x="-90.0" y="-91.0" />
+      <point x="223.77848837209308" y="948.0" />
+      <point x="119.125" y="948.0" />
+      <point x="-25.375" y="36.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DataController" target="billingappspackage.datacontrollers.DatabaseConnector">
+      <point x="105.0" y="-91.0" />
+      <point x="418.7784883720931" y="958.0" />
+      <point x="694.0001937984497" y="958.0" />
+      <point x="41.25" y="13.0" />
+    </edge>
+    <edge source="billingappspackage.window.AppWindow" target="billingappspackage.AppController">
+      <point x="81.0" y="69.0" />
+      <point x="225.5" y="781.0" />
+      <point x="220.625" y="781.0" />
+      <point x="76.125" y="-36.0" />
+    </edge>
+    <edge source="billingappspackage.AppController" target="billingappspackage.datacontrollers.DataController">
+      <point x="76.125" y="36.0" />
+      <point x="220.625" y="928.0" />
+      <point x="253.77848837209308" y="928.0" />
+      <point x="-60.0" y="-91.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DataController" target="billingappspackage.Billing">
+      <point x="75.0" y="-91.0" />
+      <point x="388.7784883720931" y="938.0" />
+      <point x="559.7501937984497" y="938.0" />
+      <point x="559.7501937984497" y="598.0" />
+      <point x="517.2501937984497" y="598.0" />
+      <point x="71.25" y="91.0" />
+    </edge>
+    <edge source="billingappspackage.OrderedProduct" target="billingappspackage.Product">
+      <point x="39.25000000000006" y="-47.0" />
+      <point x="313.25" y="222.0" />
+      <point x="490.0416666666667" y="222.0" />
+      <point x="-11.083333333333314" y="91.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DatabaseConnector" target="billingappspackage.Product">
+      <point x="55.0" y="-13.0" />
+      <point x="707.7501937984497" y="781.0" />
+      <point x="690.5854651162791" y="781.0" />
+      <point x="690.5854651162791" y="222.0" />
+      <point x="512.2083333333334" y="222.0" />
+      <point x="11.083333333333343" y="91.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DataController" target="billingappspackage.Client">
+      <point x="45.0" y="-91.0" />
+      <point x="358.7784883720931" y="918.0" />
+      <point x="427.96802325581393" y="918.0" />
+      <point x="427.96802325581393" y="781.0" />
+      <point x="437.2501937984497" y="781.0" />
+      <point x="0.0" y="58.0" />
+    </edge>
+    <edge source="billingappspackage.AppController" target="billingappspackage.window.AppWindow">
+      <point x="-25.375" y="-36.0" />
+      <point x="119.125" y="781.0" />
+      <point x="117.5" y="781.0" />
+      <point x="-27.0" y="69.0" />
+    </edge>
+    <edge source="billingappspackage.datacontrollers.DatabaseConnector" target="billingappspackage.Billing">
+      <point x="0.0" y="-13.0" />
+      <point x="652.7501937984497" y="781.0" />
+      <point x="674.7501937984497" y="781.0" />
+      <point x="674.7501937984497" y="598.0" />
+      <point x="564.7501937984497" y="598.0" />
+      <point x="118.74999999999999" y="91.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="612.7083333333337" y="533.75" />
+  <SelectedNodes>
+    <node>billingappspackage.Client</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

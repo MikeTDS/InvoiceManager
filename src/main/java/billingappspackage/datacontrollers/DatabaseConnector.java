@@ -16,5 +16,5 @@ public class DatabaseConnector {
     public void getBillingsFromDatabase(ArrayList<Billing> billings){}
     public void addClientToDatabase(Client client){}
     public void addBillingToDatabase(Billing billing){}
-    public void performQuery(String query){}
+    private void performQuery(String query){}
 }
